@@ -17,7 +17,7 @@ const Message = forwardRef(({ id, username, message }, ref) => {
   return (
     <div ref={ref} className={isUser ? "message__user" : "message__card"}>
       <div>
-        <p><span className="message__username">{message.username}</span>:{message.text}</p>
+        <p><span className="message__username">{!isUser && `${message.username|| "unknown user"}:`}</span>{message.text}</p>
       </div>
       <div>
        <IconButton  className="message__button" onClick={deleteComment}><DeleteIcon/></IconButton>
